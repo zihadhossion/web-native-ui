@@ -1,0 +1,47 @@
+body {
+  display: grid;
+  font-family: system-ui, sans-serif;
+  place-items: center;
+  height: 100dvh;
+}
+
+button {
+  background: #eee;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid gray;
+}
+
+#my-popover {
+  background: #333;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  padding: 1rem;
+  max-width: 15ch;
+  line-height: 1.4;
+  position: absolute;
+  inset: auto;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#my-dialog {
+  background: #333;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  padding: 1rem;
+  max-width: 15ch;
+  line-height: 1.4;
+  position: absolute;
+  inset: auto;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
