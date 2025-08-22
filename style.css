@@ -1,47 +1,104 @@
 body {
-  display: grid;
-  font-family: system-ui, sans-serif;
-  place-items: center;
-  height: 100dvh;
+    display: grid;
+    font-family: system-ui, sans-serif;
+    place-items: center;
+    height: 100dvh;
 }
 
 button {
-  background: #eee;
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid gray;
+    background: #eee;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid gray;
 }
 
+
+/* POPOVER START */
 #my-popover {
-  background: #333;
-  color: white;
-  border: none;
-  font-size: 1.2rem;
-  padding: 1rem;
-  max-width: 15ch;
-  line-height: 1.4;
-  position: absolute;
-  inset: auto;
-  top: 1rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+    background: #333;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    padding: 1rem;
+    max-width: 15ch;
+    line-height: 1.4;
+    position: absolute;
+    inset: auto;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
+/* POPOVER END */
+
+
+
+/* DIALOG START */
 #my-dialog {
-  background: #333;
-  color: white;
-  font-size: 1.2rem;
-  border: none;
-  padding: 1rem;
-  max-width: 15ch;
-  line-height: 1.4;
-  position: absolute;
-  inset: auto;
-  top: 1rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+    background: #333;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    padding: 1rem;
+    max-width: 15ch;
+    line-height: 1.4;
+    position: absolute;
+    inset: auto;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
+/* DIALOG END */
+
+
+/* ANCHOR START */
+#anchor {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+}
+
+#popover {
+    /*  UA resets  */
+    inset: auto;
+
+    /*  Positioning  */
+    position-area: inline-end;
+    position-try-fallbacks: --top, --right, --bottom, --left;
+
+
+    /* Basic popover styles */
+    padding: 1rem;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    max-width: 200px;
+    text-align: center;
+}
+
+/* 3. Define each positioning option with @position-try */
+@position-try --top {
+    position-area: block-start;
+}
+
+@position-try --right {
+    position-area: inline-end;
+}
+
+@position-try --bottom {
+    position-area: block-end;
+}
+
+@position-try --left {
+    position-area: inline-start;
+}
+
+/* ANCHOR END */

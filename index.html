@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Browser Native UI</title>
-    <style src="./style.css"></style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -28,6 +28,15 @@
                 <p>I am a dialog element. You can also light-dismiss me by clicking outside of my bounding box.
                 <p>
             </dialog>
+        </div>
+
+        <!-- ANCHOR -->
+        <div>
+            <button id="anchor" popovertarget="popover">Anchor</button>
+
+            <div id="popover" popover>
+                I automatically reposition to stay in view.
+            </div>
         </div>
     </main>
 

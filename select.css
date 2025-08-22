@@ -1,0 +1,117 @@
+:root {
+    color-scheme: light dark;
+    --padding: 1rem;
+    --bg: light-dark(#f0f4f9, #282a2c);
+    --hover: light-dark(#e1e5e9, gray);
+    --accent: light-dark(#a38ab9, #d5cbda);
+}
+
+select,
+::picker(select) {
+    appearance: base-select;
+    font-family: "Google Sans", "Helvetica Neue", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgb(50, 50, 50);
+    color: light-dark(#333b3c, #efefec);
+    background: var(--bg);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+selectedcontent,
+.title,
+.brand {
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    gap: 0.3rem;
+}
+
+option,
+.brand {
+    padding: 0.5rem 3rem 0.5rem 0.25rem;
+    display: grid;
+    grid-template-columns: 1rem auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+img {
+    max-width: 1.5rem;
+}
+
+.icon {
+    width: 20px;
+}
+
+/* weird styling stuff here RE: select::checkmark vs. option::checkmark specificity */
+select::checkmark {
+    position: absolute;
+    right: var(--padding);
+}
+
+option::checkmark {
+    position: absolute;
+    /*  why is --padding not defined?  */
+    right: var(--padding);
+    right: 1rem;
+    content: '';
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyNHB4IiBmaWxsPSIjMWYxZjFmIj48cGF0aCBkPSJtNDI0LTI5NiAyODItMjgyLTU2LTU2LTIyNiAyMjYtMTE0LTExNC01NiA1NiAxNzAgMTcwWm01NiAyMTZxLTgzIDAtMTU2LTMxLjVUMTk3LTE5N3EtNTQtNTQtODUuNS0xMjdUODAtNDgwcTAtODMgMzEuNS0xNTZUMTk3LTc2M3E1NC01NCAxMjctODUuNVQ0ODAtODgwcTgzIDAgMTU2IDMxLjVUNzYzLTc2M3E1NCA1NCA4NS41IDEyN1Q4ODAtNDgwcTAgODMtMzEuNSAxNTZUNzYzLTE5N3EtNTQgNTQtMTI3IDg1LjVUNDgwLTgwWm0wLTgwcTEzNCAwIDIyNy05M3Q5My0yMjdxMC0xMzQtOTMtMjI3dC0yMjctOTNxLTEzNCAwLTIyNyA5M3QtOTMgMjI3cTAgMTM0IDkzIDIyN3QyMjcgOTNabTAtMzIwWiIvPjwvc3ZnPg==') no-repeat center;
+    background-size: contain;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+selectedcontent .subtitle,
+selectedcontent .icon {
+    display: none;
+}
+
+::picker(select) {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+/* hover animation using CSS custom properties */
+
+@property --gradPoint {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+
+option {
+    background: radial-gradient(circle at center, light-dark(lightgray, #5e5e6a) var(--gradPoint), light-dark(#f0f4f9, #282a2c) var(--gradPoint), light-dark(#f0f4f9, #282a2c) 100%);
+}
+
+select:hover,
+option:hover {
+    background: radial-gradient(circle at center, light-dark(lightgray, #5e5e6a) var(--gradPoint), light-dark(#e1e5e9, #37393d) var(--gradPoint), light-dark(#e1e5e9, #37393d) 100%);
+}
+
+option:active,
+select:active {
+    --gradPoint: 100%;
+    transition: --gradPoint 0.2s ease-out;
+}
+
+/* etc */
+
+body {
+    background: light-dark(white, #1c1c1d);
+}
+
+.chip {
+    font-size: 75%;
+    background: var(--accent);
+    color: light-dark(white, #222);
+    padding: 2px 4px;
+    border-radius: 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    option::checkmark {
+        filter: invert();
+    }
+}
